@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: leaderboard_db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: leaderboard
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  redis:
+    image: redis:alpine
+    container_name: leaderboard_redis
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: leaderboard_backend
+    environment:
+      DATABASE_URL: postgresql+asyncpg://user:password@db:5432/leaderboard
+      REDIS_URL: redis://redis:6379
+      NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: leaderboard_frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+
+networks:
+  default:
+    driver: bridge
