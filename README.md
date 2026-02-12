@@ -51,7 +51,43 @@ To test the system under load and see the live updates on the leaderboard, run t
 The system uses environment variables defined in `docker-compose.yml`.
 - `DATABASE_URL`: PostgreSQL connection string.
 - `REDIS_URL`: Redis connection string.
-- `NEW_RELIC_LICENSE_KEY`: (Optional) Add your New Relic key in `docker-compose.yml` to enable monitoring.
+- `NEW_RELIC_LICENSE_KEY`: (Optional) Add your New Relic key to enable comprehensive performance monitoring.
+
+### 📊 New Relic Monitoring (Recommended)
+
+This application comes with **full New Relic APM integration** to track API performance, database queries, and system bottlenecks.
+
+**Quick Setup (3 steps):**
+
+1. **Sign up for free** at https://newrelic.com (100GB/month free, no credit card)
+2. **Get your license key** from https://one.newrelic.com/api-keys (create "License" type)
+3. **Add to `.env` file**:
+   ```bash
+   cp .env.example .env
+   # Edit .env and add:
+   NEW_RELIC_LICENSE_KEY=your_license_key_here
+   ```
+
+4. **Restart containers**:
+   ```bash
+   docker-compose down
+   docker-compose up --build
+   ```
+
+**What New Relic Monitors:**
+- ✅ API endpoint response times (with 500ms slow threshold alerts)
+- ✅ Database query performance (tracks queries > 100ms)
+- ✅ Redis cache hit/miss rates
+- ✅ Error tracking and alerting
+- ✅ Custom business metrics (score submissions, cache effectiveness)
+- ✅ Distributed tracing across services
+
+**View Performance Data:**
+- Dashboard: https://one.newrelic.com → APM & Services → "GoComet Leaderboard API"
+- **Full Setup Guide:** [NEW_RELIC_README.md](./NEW_RELIC_README.md)
+- **Detailed Documentation:** [NEW_RELIC_GUIDE.md](./NEW_RELIC_GUIDE.md)
+- **Alert Setup Script:** `backend/create_alerts.py`
+
 
 ## 4. Documentation
 
