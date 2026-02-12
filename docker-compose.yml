@@ -27,7 +27,7 @@ services:
     environment:
       DATABASE_URL: postgresql+asyncpg://user:password@db:5432/leaderboard
       REDIS_URL: redis://redis:6379
-      NEW_RELIC_LICENSE_KEY: 9d69f191eb1bd198809d4bf9652405f7FFFFNRAL
+      NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
     ports:
       - "8000:8000"
     depends_on:
