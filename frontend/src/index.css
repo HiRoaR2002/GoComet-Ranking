@@ -364,3 +364,240 @@ body {
   }
 }
 
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet and below (768px) */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  /* Leaderboard Card */
+  .leaderboard-card {
+    padding: 1.5rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Table */
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .rank-col {
+    width: 70px;
+  }
+
+  .score-col {
+    width: 140px;
+  }
+
+  .rank-badge {
+    font-size: 1.25rem;
+  }
+
+  .score-value {
+    font-size: 1rem;
+  }
+
+  /* Rank Lookup & Submit Score Cards */
+  .rank-lookup-card,
+  .submit-score-card {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .search-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .search-btn {
+    width: 100%;
+  }
+
+  /* Form */
+  .submit-form {
+    gap: 1.25rem;
+  }
+
+  .form-input,
+  .form-select {
+    font-size: 0.9375rem;
+  }
+
+  /* Result Card */
+  .result-card {
+    padding: 1.25rem;
+  }
+
+  .result-row {
+    padding: 0.625rem 0;
+  }
+
+  .result-label {
+    font-size: 0.8125rem;
+  }
+
+  .result-value {
+    font-size: 0.9375rem;
+  }
+
+  .rank-highlight {
+    font-size: 1.125rem;
+  }
+
+  .score-highlight {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  /* Cards */
+  .leaderboard-card,
+  .rank-lookup-card,
+  .submit-score-card {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .card-header {
+    margin-bottom: 1rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.25rem;
+  }
+
+  /* Table - compact version */
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 0.5rem;
+    font-size: 0.8125rem;
+  }
+
+  .leaderboard-table th {
+    font-size: 0.75rem;
+  }
+
+  .rank-col {
+    width: 60px;
+  }
+
+  .user-col {
+    font-size: 0.8125rem;
+  }
+
+  .score-col {
+    width: 110px;
+  }
+
+  .rank-badge {
+    font-size: 1.125rem;
+  }
+
+  .score-value {
+    font-size: 0.875rem;
+  }
+
+  /* Forms */
+  .user-input,
+  .search-btn,
+  .form-input,
+  .form-select,
+  .submit-btn {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.875rem;
+  }
+
+  .search-btn {
+    min-width: 100px;
+  }
+
+  .form-group label {
+    font-size: 0.8125rem;
+  }
+
+  /* Result Card */
+  .result-card {
+    padding: 1rem;
+  }
+
+  .result-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding: 0.5rem 0;
+  }
+
+  .result-label {
+    font-size: 0.75rem;
+  }
+
+  .result-value {
+    font-size: 0.875rem;
+  }
+
+  .rank-highlight {
+    font-size: 1rem;
+  }
+
+  .score-highlight {
+    font-size: 0.9375rem;
+  }
+
+  /* Messages */
+  .error-message,
+  .success-message {
+    padding: 0.875rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Extra small mobile (360px) */
+@media (max-width: 360px) {
+  .card-header h2 {
+    font-size: 1.125rem;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 0.375rem;
+    font-size: 0.75rem;
+  }
+
+  .rank-col {
+    width: 50px;
+  }
+
+  .score-col {
+    width: 90px;
+  }
+
+  .rank-badge {
+    font-size: 1rem;
+  }
+
+  .score-value {
+    font-size: 0.8125rem;
+  }
+
+  .user-input,
+  .search-btn,
+  .form-input,
+  .form-select,
+  .submit-btn {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+}
+
