@@ -36,3 +36,19 @@ export const fetchUserRank = async (userId: number): Promise<UserRank> => {
         throw error;
     }
 };
+
+export interface GameSessionCreate {
+    user_id: number;
+    score: number;
+    game_mode: 'solo' | 'team';
+}
+
+export const submitScore = async (data: GameSessionCreate): Promise<{ message: string }> => {
+    try {
+        const response = await api.post<{ message: string }>('/submit', data);
+        return response.data;
+    } catch (error) {
+        console.error("Error submitting score:", error);
+        throw error;
+    }
+};
